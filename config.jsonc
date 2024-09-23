@@ -95,6 +95,11 @@
         },
 //    "terminalfont",
 //    "memory",
+{
+	"type": "memory",
+	"key": "Memory ",
+	"keyColor": "green"
+},
 //    "swap",
 //    "disk",
 {

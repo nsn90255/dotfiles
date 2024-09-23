@@ -1,0 +1,113 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+        "source": "arch1",
+        "color": {
+            "1": "green",
+            "2": "green"
+        }
+    },
+  "modules": [
+//    "title",
+{
+            "type": "title",
+	    "color": {
+                "user": "green",
+                "at": "white",
+                "host": "green"
+            }
+        },
+
+    "separator",
+//    "os",
+{     "type": "os",
+      "key": "OS ",
+      "keyColor": "green"
+},
+//    "host",
+{
+	"type": "host",
+	"key": "Host ",
+	"keyColor": "green"
+},
+//    "kernel",
+{
+            "type": "kernel",
+            "key": "Kernel ",
+            "keyColor": "green"
+        },
+//    "uptime",
+{
+            "type": "uptime",
+            "key": "Uptime ",
+            "keyColor": "green"
+        },
+//    "packages",
+{
+            "type": "packages",
+            "key": "Packages ",
+            "keyColor": "green"
+        },
+//    "shell",
+{
+	"type": "shell",
+	"key": "Shell ",
+	"keyColor": "green"
+},
+//    "display",
+{
+	"type": "display",
+	"key": "Display ",
+	"keyColor": "green"
+},
+//    "de",
+//    "wm",
+{
+	"type": "wm",
+	"key": "WM ",
+	"keyColor" : "green"
+},
+//    "wmtheme",
+//    "theme",
+//    "icons",
+//    "font",
+//    "cursor",
+//    "terminal",
+{
+            "type": "terminal",
+            "key": "Terminal ",
+            "keyColor": "green"
+        },
+//    "terminalfont",
+//    "cpu",
+
+{
+            "type": "cpu",
+            "key": "CPU ",
+            "keyColor": "green"
+        },
+//    "terminalfont",
+//    "gpu",
+{
+            "type": "gpu",
+            "key": "GPU ",
+            "keyColor": "green"
+        },
+//    "terminalfont",
+//    "memory",
+//    "swap",
+//    "disk",
+{
+            "type": "disk",
+            "key": "Disk ",
+            "keyColor": "green"
+        },
+//    "terminalfont",
+//    "localip",
+//    "battery",
+//    "poweradapter",
+//    "locale",
+    "break",
+    "colors"
+  ]
+}

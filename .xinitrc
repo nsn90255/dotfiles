@@ -1,6 +1,6 @@
 xrdb ~/.Xresources
 slstatus &
-xinput disable 10 &
+sh ~/disable_touchpad.sh &
 picom &
 feh --bg-scale ~/Pictures/wallpaper.jpg &
 exec dwm

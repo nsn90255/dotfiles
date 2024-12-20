@@ -1,4 +1,3 @@
-xrdb ~/.Xresources
 slstatus &
 sh ~/disable_touchscreen.sh &
 picom &

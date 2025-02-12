@@ -1,2 +1,2 @@
 #!/bin/sh
-slurp | grim -g - ~/Pictures/Screenshots/$(date +%Y%m%d%H%M).png && wl-copy < ~/Pictures/Screenshots/$(date +%Y%m%d%H%M).png
+slurp | grim -g - /home/$USER/Pictures/Screenshots/$(date +%Y%m%d%H%M).png && wl-copy < /home/$USER/Pictures/Screenshots/$(date +%Y%m%d%H%M).png

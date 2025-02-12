@@ -101,6 +101,11 @@
 	"keyColor": "green"
 },
 //    "swap",
+{
+            "type": "swap",
+            "key": "Swap",
+            "keyColor": "green"
+        },
 //    "disk",
 {
             "type": "disk",

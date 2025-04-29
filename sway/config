@@ -96,7 +96,7 @@ input type:keyboard {
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -244,6 +244,7 @@ bar {
 }
 default_border pixel 2
 
-client.focused #d6aed6 #c97cc9 #ffffff
+client.focused #d6aed6 #c97cc9 #ffffff #c97cc9
 
 include /etc/sway/config.d/*
+exec amixer -c 0 set 'Output Select' 'Headphone'

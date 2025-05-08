@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+# check directory
+if [ "$(pwd)" != "/home/gandolapp" ]; then
+  echo "Not in the correct directory. Exiting."
+  exit 1
+fi
+
+# Get today's date close to ISO format
+BACKUP_DATE=$(date +%Y-%m-%dT%Hh%M)
+# get set date
+TODAY=$(date +%Y%m%d)
+
+# files to edit
+APP="images/app/dependencies/Dockerfile"
+BACKEND="images/backend/dependencies/Dockerfile"
+FLEETAPI="images/fleetapi/dependencies/Dockerfile"
+DRIVERAPI="images/driverapi/dependencies/Dockerfile"
+FRONTEND="images/frontend/dependencies/Dockerfile"
+
+# Create a backup of the Dockerfile
+cp "$APP" "/home/gandolapp/backups/app.backup.$BACKUP_DATE"
+cp "$BACKEND" "/home/gandolapp/backups/backend.backup.$BACKUP_DATE"
+cp "$FLEETAPI" "/home/gandolapp/backups/fleetapi.backup.$BACKUP_DATE"
+cp "$DRIVERAPI" "/home/gandolapp/backups/driverapi.backup.$BACKUP_DATE"
+cp "$FRONTEND" "/home/gandolapp/backups/frontend.backup.$BACKUP_DATE"
+
+# Use sed to replace the date in the FROM line with today's date
+sed -i "s|^\(FROM .*:1.1.\)[0-9]\{8\}|\1$TODAY|" "$APP"
+sed -i "s|^\(FROM .*:1.1.\)[0-9]\{8\}|\1$TODAY|" "$BACKEND"
+sed -i "s|^\(FROM .*:1.1.\)[0-9]\{8\}|\1$TODAY|" "$FLEETAPI"
+sed -i "s|^\(FROM .*:1.1.\)[0-9]\{8\}|\1$TODAY|" "$DRIVERAPI"
+sed -i "s|^\(FROM .*:1.1.\)[0-9]\{8\}|\1$TODAY|" "$FRONTEND"

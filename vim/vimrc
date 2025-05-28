@@ -10,4 +10,5 @@ if has("autocmd")
 endif
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+nmap <F2> :NERDTreeToggle<CR>
 set viminfo='1000,f1,<50,s1000,n~/.config/vim/.viminfo

@@ -7,5 +7,5 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 endif
 let @a = 'I#j'
-nnoremap <leader>a :call GlobalMacroA()<CR>
+set shiftwidth=4 smarttab
 set viminfo='1000,f1,<50,s1000,n~/.config/vim/.viminfo

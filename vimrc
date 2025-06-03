@@ -1,0 +1,35 @@
+filetype plugin on
+syntax on
+set number
+set relativenumber
+set clipboard=unnamedplus
+set scrolloff=10
+set shiftwidth=4 smarttab
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+endif
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 15
+let g:netrw_browse_split = 4
+autocmd VimEnter * Vexplore | wincmd p
+autocmd BufEnter * if &filetype ==# 'netrw' && winnr('$') == 1 | quit | endif
+nmap <F2> :call VToggleNetrw()<CR>
+function! VToggleNetrw()
+        let i = bufnr("$")
+        let wasOpen = 0
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i
+                let wasOpen = 1
+            endif
+            let i-=1
+        endwhile
+    if !wasOpen
+        silent Vexplore
+        :vertical resize 22
+    endif
+endfunction
+let @a = 'I#' . nr2char(27) . 'j'
+let @s = 'I//' . nr2char(27) . 'j'
+set viminfo='1000,f1,<50,s1000,n~/.config/vim/.viminfo

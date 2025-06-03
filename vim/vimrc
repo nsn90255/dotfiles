@@ -30,6 +30,6 @@ function! VToggleNetrw()
         :vertical resize 22
     endif
 endfunction
-let @a = 'I#'
-let @s = 'I//'
+let @a = 'I#' . nr2char(27) . 'j'
+let @s = 'I//' . nr2char(27) . 'j'
 set viminfo='1000,f1,<50,s1000,n~/.config/vim/.viminfo

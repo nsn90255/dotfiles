@@ -57,7 +57,7 @@
 //    "initsystem",
 {
 	"type": "initsystem",
-	"key": "Init",
+	"key": "Init ",
 	"keyColor": "green"
 },
 //    "display",
@@ -86,7 +86,7 @@
 },
 {
             "type": "editor",
-            "key": "Editor",
+            "key": "Editor ",
             "keyColor": "green"
 },
 //    "cpu",

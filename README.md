@@ -1,3 +1,2 @@
 # Dotfiles
-Don't forget cp the files in this repo to the original ones
-softlink your cursor to default
+Get the cursor as well (from my fork).

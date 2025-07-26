@@ -1,11 +1,16 @@
 #!/bin/sh
-set -eu
+set -e
 
-FUCKMP4_WORK_DIR="/home/$USER/.cache/fuckmp4"
+# fallback, cause some distros don't set the xdg whatever spec
+if [ -z "$XDG_CACHE_HOME" ];then
+	FUCKMP4_WORK_DIR="/home/$USER/.cache/fuckmp4"
+else
+	FUCKMP4_WORK_DIR="${XDG_CACHE_HOME}/fuckmp4"
+fi
 
 mkdir -p ${FUCKMP4_WORK_DIR}
 
-OUTPUT_DIR="/home/$USER/Videos/"
+OUTPUT_DIR="$HOME/Videos/"
 
 mkdir -p ${OUTPUT_DIR}
 
@@ -13,9 +18,9 @@ OUTPUT_NAME="$(date +'%Y-%m-%dT%H:%M').gif"
 
 URL="$1"
 
-curl -L -o ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 "$URL"
+curl -L -o ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 "$URL" >& /dev/null
 
-ffmpeg -i ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 -vf "fps=15" ${OUTPUT_DIR}${OUTPUT_NAME}
+ffmpeg -i ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 -vf "fps=15" ${OUTPUT_DIR}${OUTPUT_NAME} >& /dev/null
 
 echo "Downloaded gif to ${OUTPUT_DIR}${OUTPUT_NAME}"
 

@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+
+FUCKMP4_WORK_DIR="/home/$USER/.cache/fuckmp4"
+
+mkdir -p ${FUCKMP4_WORK_DIR}
+
+OUTPUT_DIR="/home/$USER/Videos/"
+
+mkdir -p ${OUTPUT_DIR}
+
+OUTPUT_NAME="$(date +'%Y-%m-%dT%H:%M').gif"
+
+URL="$1"
+
+curl -L -o ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 "$URL"
+
+ffmpeg -i ${FUCKMP4_WORK_DIR}/downloaded_video.mp4 -vf "fps=15" ${OUTPUT_DIR}${OUTPUT_NAME}
+
+echo "Downloaded gif to ${OUTPUT_DIR}${OUTPUT_NAME}"
+
+rm ${FUCKMP4_WORK_DIR}/downloaded_video.mp4

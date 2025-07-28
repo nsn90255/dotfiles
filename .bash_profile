@@ -4,4 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec slstatus -s | dbus-run-session dwl; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    export XDG_CURRENT_DESKTOP=sway
+    exec sway
+fi

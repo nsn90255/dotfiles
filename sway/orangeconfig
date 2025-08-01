@@ -28,7 +28,7 @@ set $screenshot /usr/local/bin/screenshot
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/hugo/Pictures/background.jpg fill
+output * bg /home/$USER/Pictures/background.jpg fill
 #
 # Example configuration:
 #

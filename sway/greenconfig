@@ -19,7 +19,7 @@ set $term foot
 # Your preferred application launcher
 set $menu wmenu-run -N 000000 -S 92b780 -f "Noto Sans Mono 13"
 # Set browser
-set $browser firefox
+set $browser librewolf
 
 set $lock waylock
 

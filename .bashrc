@@ -14,6 +14,8 @@ HISTFILESIZE=2000
 set -o vi
 
 #source /usr/share/git/completion/git-prompt.sh
+# for gentoo :
+#source /usr/share/git/git-prompt.sh
 
 PS1='\[\033[32m\]\u\[\033[00m\]@\[\033[32m\]\h\n\[\033[00m\]\w \[\033[32m\]> \[\033[00m\]'
 # with git branch

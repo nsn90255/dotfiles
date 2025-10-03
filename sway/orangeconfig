@@ -17,22 +17,22 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu wmenu-run -N 000000 -S c97cc9 -f "Noto Sans Mono 13"
+set $menu wmenu-run -N 000000 -S d7af87 -f "Noto Sans Mono 13"
 # Set browser
 set $browser librewolf
 
 set $lock waylock
 
-set $screenshot /usr/local/bin/screenshot
+#set $screenshot /usr/local/bin/screenshot
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/$USER/Pictures/background.jpg fill
+output * bg /home/pepper/Pictures/background.png fill
 #
 # Example configuration:
 #
-output DP-1 resolution 1920x1080@144hz position 1920,0
+#output DP-1 resolution 1920x1080@60hz position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -226,10 +226,10 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
-    bindsym Print exec $screenshot
+    bindsym $mod+d exec brightnessctl set 5%-
+    bindsym $mod+u exec brightnessctl set 5%+
+    # take screenshot using flameshot
+    bindsym Print exec flameshot gui
 
 #
 # Status Bar:
@@ -240,19 +240,25 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%dT%H:%M'; do sleep 1; done
+    # status_command while cat /sys/class/power_supply/BAT1/capacity; do sleep 1; done
     status_command slstatus -s
 	
     font Noto Sans Mono 10
     colors {
         statusline #ffffff
         background #000000
-        focused_workspace #d6aed6 #c97cc9 #ffffff
+        focused_workspace #e4c9af #d7af87 #ffffff
         inactive_workspace #5c5c5c #000000 #5c5c5c
     }
 }
 default_border pixel 2
 
-client.focused #d6aed6 #c97cc9 #ffffff #c97cc9
+client.focused #5c5c5c #d7af87 #ffffff #d7af87
 
 include /etc/sway/config.d/*
 #exec amixer -c 0 set 'Output Select' 'Headphone'
+exec_always {
+    export GTK_THEME=Adwaita-dark
+    gammastep
+}
